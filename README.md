@@ -15,11 +15,11 @@ scripts{
 add .gitignore and .env files
 
 .env:
-PORT = 8090
+ PORT = 8090
 
-HOST="bufxgxearndomguz5u5q-mysql.services.clever-cloud.com"
-USER='ua8696pswbqmadwj'
-PASSWORD='PBPucGyw5GxJtOlrV9fj'
-DATABASE="bufxgxearndomguz5u5q"
+HOST="bw9vp2aftd94ahirygkb-mysql.services.clever-cloud.com" 
+USER='ufnzn0qnpgovnndf' 
+PASSWORD='btC7LO8DiCXRDQkcIH9i' 
+DATABASE="bw9vp2aftd94ahirygkb"
 
 SECRET_KEY= 'dxfhgklkjlkojihugtfguijijh;uhlydrurdiftoygphiohugoyu'

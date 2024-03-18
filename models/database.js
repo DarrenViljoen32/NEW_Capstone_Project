@@ -74,7 +74,7 @@ const getOneAdmin = async(user_ID)=>{
 const registerAdmin = async(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image)=>{
     // const [user] = 
     await pool.query(`
-        INSERT INTO uses (user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image) VALUES (?,?,?,?,?,?,?)
+        INSERT INTO users (user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image) VALUES (?,?,?,?,?,?,?)
     `,[user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image])
     // return getOneAdmin(user.insertId)
 }  

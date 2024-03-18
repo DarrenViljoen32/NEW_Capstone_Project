@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
-import userRouter from './routes/users.js'
+// import userRouter from './routes/users.js'
 import adminRouter from './routes/admins.js'
 import postRouter from './routes/posts.js'
 
@@ -33,7 +33,7 @@ app.use(cookieParser())
 app.use(express.static('../frontend/src/views/LogInView.vue'))
  
 
-app.use('/users', userRouter)
+// app.use('/users', userRouter)
 app.use('/admins', adminRouter)
 app.use('/posts', postRouter)
 

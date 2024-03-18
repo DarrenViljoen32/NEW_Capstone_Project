@@ -34,7 +34,7 @@ app.use(express.static('../frontend/src/views/LogInView.vue'))
  
 
 // app.use('/users', userRouter)
-app.use('/admins', adminRouter)
+app.use('/users', adminRouter)
 app.use('/posts', postRouter)
 
 // app.post('/admins', (req,res)=>{

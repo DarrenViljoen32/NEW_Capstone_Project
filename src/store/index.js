@@ -190,11 +190,12 @@ export default createStore({
         Swal.fire('Error adding admin ', err)
       }
     },
-
+ 
     //login as admin
-    async loginAdmin({commit}, user_Password){
+    async loginAdmin({commit}, {user_Email, user_Password}){
+      try{
         console.log(user_Password);
-        let {data} = await axios.post(baseUrl + '/login', user_Password)
+        const {data} = await axios.post(baseUrl + '/login', {user_Email, user_Password})
 
         // const userDetails = data.users
         // commit('setUsers', userDetails)
@@ -206,11 +207,18 @@ export default createStore({
         Swal.fire(data.msg)
         await router.push('/home')
 
-
       //commit('setLogged', true)
       // window.location.reload()
+
+      }catch(error){
+        if(error.response && error.response.status === 401){
+          alert('The credetials are incorrect.')
+        }else{
+          alert('An error occured. Please try again later')
+        }
+      }
     },
- 
+  
     //logout
     async logout(){
       let cookies = $cookies.keys()

@@ -2,8 +2,8 @@
     <div class="view">
         <h1>Log In</h1>
 
-        <input type="text" name="user_Name" id="user_Name1" placeholder="Name" v-model="user_Name">
-        <br><br>
+        <!-- <input type="text" name="user_Name" id="user_Name1" placeholder="Name" v-model="user_Name">
+        <br><br> -->
         <input type="text" name="user_Email" id="user_Email1" placeholder="Email" v-model="user_Email">
         <br><br>
         <input type="password" name="user_Password" id="user_Password1" placeholder="Password" v-model="user_Password">'
@@ -16,20 +16,23 @@
         <router-link to="/signin"><button>Sign Up</button></router-link>
     </div>
 </template> 
-
+ 
 <script>
 export default{
     data() {
         return{
-            user_Name: null,
-            user_Email: null,
-            user_Password: null
+            // user_Name: null,
+            user_Email: '',
+            user_Password: ''
         }
     },
 
     methods:{
-        password(){
-            this.$store.dispatch('loginAdmin', this.$data)
+        async password(){
+            await this.$store.dispatch('loginAdmin', {
+                user_Email: this.user_Email,
+                user_Password: this.user_Password
+            })
         }
     },
 

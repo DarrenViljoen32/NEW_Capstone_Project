@@ -22,11 +22,11 @@ const getOneUser = async(user_ID)=>{
 }
 
 //add user
-const addUser = async(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image)=>{
+const addUser = async(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role)=>{
     // const [user] = 
     await pool.query(`
-        INSERT INTO users (user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image) VALUES (?,?,?,?,?,?,?)
-    `,[user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image])
+        INSERT INTO users (user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role) VALUES (?,?,?,?,?,?,?,?)
+    `,[user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role])
     // return getOneUser(user.insertId)
 }  
 
@@ -41,11 +41,11 @@ const deleteUser = async(user_ID)=>{
 }
  
 //edit user
-const editUser = async(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_ID)=>{
+const editUser = async(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role, user_ID)=>{
     const [user] = await pool.query(`
-    UPDATE users SET user_Name=?, user_Surname=?, user_Age=?, user_Gender=?, user_Email=?, user_Password=?, user_Image=? 
+    UPDATE users SET user_Name=?, user_Surname=?, user_Age=?, user_Gender=?, user_Email=?, user_Password=?, user_Image=?, user_Role=? 
     WHERE (user_ID=?)
-    `,[user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_ID])
+    `,[user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role, user_ID])
     return user
 } 
 

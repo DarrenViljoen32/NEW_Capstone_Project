@@ -27,10 +27,10 @@ export default{
     },
 
     addUser: async (req,res)=>{
-        const {user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image} = req.body
+        const {user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role} = req.body
         bcrypt.hash(user_Password, 10, async (err,hash)=>{
             if(err) throw err
-            await addUser(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, hash)
+            await addUser(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role, hash)
             // const users = await getUsers()
             // res.send(await getUsers())
             res.send({
@@ -71,9 +71,10 @@ export default{
             user_Email ? user_Email = user_Email: {user_Email} = user
             user_Password ? user_Password = user_Password: {user_Password} = user
             user_Image ? user_Image = user_Image: {user_Image} = user
+            user_Role ? user_Role = user_Role: {user_Role} = user
     
             console.log(user);
-            await editUser(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image,+req.params.user_ID) 
+            await editUser(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role, +req.params.user_ID) 
             res.send({
                 msg: "You have successfully updated the data."
             })

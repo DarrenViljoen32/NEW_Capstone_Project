@@ -39,7 +39,7 @@ const deleteUser = async(user_ID)=>{
     `,[user_ID])
     return result
 }
- 
+  
 //edit user
 const editUser = async(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role, user_ID)=>{
     const [user] = await pool.query(`

@@ -1,7 +1,7 @@
 import {pool} from '../config/config.js'
 
 //POSTS 
-
+ 
 //get all posts
 const getPosts = async()=>{
     const [result] = await pool.query(`

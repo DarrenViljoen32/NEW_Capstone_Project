@@ -5,13 +5,13 @@ import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
-// import userRouter from './routes/users.js'
-import adminRouter from './routes/admins.js'
+import userRouter from './routes/users.js'
+// import adminRouter from './routes/admins.js'
 import postRouter from './routes/posts.js'
 
 // import { registerAdmin, checkAdmin } from './models/database.js'
-import {auth} from './middleware/admin.js'
-// import {authorize} from './middleware/users.js'
+import {authorize} from './middleware/users.js'
+// import {auth} from './middleware/admins.js'
 
 config();
  
@@ -33,8 +33,8 @@ app.use(cookieParser())
 app.use(express.static('../frontend/src/views/LogInView.vue'))
  
 
-// app.use('/users', userRouter)
-app.use('/users', adminRouter)
+app.use('/users', userRouter)
+// app.use('/users', adminRouter)
 app.use('/posts', postRouter)
 
 // app.post('/admins', (req,res)=>{
@@ -77,7 +77,7 @@ app.use('/posts', postRouter)
 // app.post('/users', authorize, (req,res)=>{
 // })
 
-app.post('/login', auth, (req,res)=>{
+app.post('/login', authorize, (req,res)=>{
 })
 
  

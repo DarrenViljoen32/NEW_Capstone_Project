@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
-import { checkAdmin } from '../models/database.js'
+// import { checkAdmin } from '../models/database.js'
 import { checkUser } from '../models/users.js'
 
 

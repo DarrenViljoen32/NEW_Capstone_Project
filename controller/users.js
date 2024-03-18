@@ -44,11 +44,13 @@ export default{
 
     
     deleteUser: async (req,res)=>{
-        await deleteUser(req.params.user_ID)
-        console.log(req.params.user_ID);
-
+        
         try{
-            res.send(await deleteUser(req.params.user_ID))
+            await deleteUser(req.params.user_ID)
+            console.log(req.params.user_ID);
+            res.send({
+                msg: "You have successfully deleted the account."
+            })
         }catch(err){
             console.error(err);
             res.json({
@@ -58,20 +60,31 @@ export default{
     },
 
     editUser: async (req,res)=>{
-        const [user] = await getOneUser(+req.params.user_ID)
-        let {user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image} = req.body
-        
-        user_Name ? user_Name = user_Name: {user_Name} = user
-        user_Surname ? user_Surname = user_Surname: {user_Surname} = user
-        user_Age ? user_Age = user_Age: {user_Age} = user
-        user_Gender ? user_Gender = user_Gender: {user_Gender} = user
-        user_Email ? user_Email = user_Email: {user_Email} = user
-        user_Password ? user_Password = user_Password: {user_Password} = user
-        user_Image ? user_Image = user_Image: {user_Image} = user
-
-        console.log(user);
-        await editUser(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image,+req.params.user_ID) 
-        res.json(await getUsers())
-    }
+        try{
+            const [user] = await getOneUser(+req.params.user_ID)
+            let {user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image} = req.body
+            
+            user_Name ? user_Name = user_Name: {user_Name} = user
+            user_Surname ? user_Surname = user_Surname: {user_Surname} = user
+            user_Age ? user_Age = user_Age: {user_Age} = user
+            user_Gender ? user_Gender = user_Gender: {user_Gender} = user
+            user_Email ? user_Email = user_Email: {user_Email} = user
+            user_Password ? user_Password = user_Password: {user_Password} = user
+            user_Image ? user_Image = user_Image: {user_Image} = user
     
+            console.log(user);
+            await editUser(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image,+req.params.user_ID) 
+            res.send({
+                msg: "You have successfully updated the data."
+            })
+            res.json(await getUsers())
+        
+        }catch(err){
+            console.error(err);
+            res.json({
+                msg: "An error has occured when updating the data."
+            })
+        }
+    
+    },
 }

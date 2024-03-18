@@ -73,7 +73,7 @@ export default{
                 msg: "You have successfully updated the data."
             })
             res.json(await getAdmins())
-
+ 
         }catch(err){
             console.error(err);
             res.json({

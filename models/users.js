@@ -50,11 +50,16 @@ const editUser = async(user_Name, user_Surname, user_Age, user_Gender, user_Emai
 } 
 
 //check user
-const  checkUser = async (user_Email) =>{
-    const [[{user_Password}]] = await pool.query(`
-        SELECT user_Password FROM users WHERE user_Email = ?
-    `,[user_Email])
-    return user_Password
+const checkUser = async (user_Email) =>{
+    try{
+        const [[{user_Password}]] = await pool.query(`
+            SELECT user_Password FROM users WHERE user_Email = ?
+        `,[user_Email])
+        return user_Password
+    }catch(error){
+        console.error(error);
+        throw error
+    }
 }
 
 export {getUsers, getOneUser, addUser, deleteUser, editUser, checkUser}

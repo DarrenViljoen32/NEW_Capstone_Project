@@ -6,11 +6,12 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
 import { checkAdmin } from '../models/database.js'
+import { checkUser } from '../models/users.js'
 
 
 const auth = async (req, res, next) => {
     const {user_Name, user_Password} = req.body
-    const hashedPassword = await checkAdmin(user_Name)
+    const hashedPassword = await checkUser(user_Name)
     bcrypt.compare(user_Password, hashedPassword, (err, result)=> {
         if(err) throw err
         if(result === true){

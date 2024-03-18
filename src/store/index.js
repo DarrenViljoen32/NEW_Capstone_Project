@@ -210,7 +210,7 @@ export default createStore({
       //commit('setLogged', true)
       // window.location.reload()
     },
-
+ 
     //logout
     async logout(){
       let cookies = $cookies.keys()

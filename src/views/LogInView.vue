@@ -4,6 +4,8 @@
 
         <input type="text" name="user_Name" id="user_Name1" placeholder="Name" v-model="user_Name">
         <br><br>
+        <input type="text" name="user_Email" id="user_Email1" placeholder="Email" v-model="user_Email">
+        <br><br>
         <input type="password" name="user_Password" id="user_Password1" placeholder="Password" v-model="user_Password">'
         <br><br>
 

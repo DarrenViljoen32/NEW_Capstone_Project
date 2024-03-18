@@ -41,7 +41,7 @@ export default{
             user_Role: null
         }
     },
-
+ 
     methods:{
         plusAdmin(){
             this.$store.dispatch('addUser', this.$data)

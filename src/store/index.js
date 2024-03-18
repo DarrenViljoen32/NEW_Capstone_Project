@@ -196,8 +196,8 @@ export default createStore({
         console.log(user_Password);
         let {data} = await axios.post(baseUrl + '/login', user_Password)
 
-        const userDetails = data.users
-        commit('setUsers', userDetails)
+        // const userDetails = data.users
+        // commit('setUsers', userDetails)
   
         $cookies.set('jwt', data.token)
         commit('setLoginMessage', data.msg)

@@ -30,6 +30,8 @@
                   <br><br>
                   <input type="text" name="user_Image" placeholder="Image Url" v-model="user_Image">
                   <br><br>
+                  <input type="text" name="user_Role" placeholder="Role" v-model="user_Role">
+                  <br><br>
                 </div>
                 <div class="modal-footer">
                   <button type="button" data-bs-dismiss="modal">Close</button>
@@ -61,6 +63,8 @@
                   <input type="password" name="user_Password" placeholder="Password" v-model="editedUsers.user_Password">
                   <br><br>
                   <input type="text" name="user_Image" placeholder="Image Url" v-model="editedUsers.user_Image">
+                  <br><br>
+                  <input type="text" name="user_Role" placeholder="Role" v-model="editedUsers.user_Role">
                   <br><br>
                 </div>
                 <div class="modal-footer">
@@ -357,6 +361,7 @@ export default{
             user_Email: null,
             user_Password: null,
             user_Image: null,
+            user_Role,
             
             editedUsers: {
               user_ID: null,
@@ -367,6 +372,7 @@ export default{
               user_Email: null,
               user_Password: null,
               user_Image: null,
+              user_Role: null
             },
 
             admin_ID: null,
@@ -440,6 +446,7 @@ export default{
         this.user_Email = user.user_Email
         this.user_Password = user.user_Password
         this.user_Image = user.user_Image
+        this.user_Role = user.user_Role
         this.editedUsers = {...user}
       },
 
@@ -451,6 +458,7 @@ export default{
         this.user_Email = ''
         this.user_Password = ''
         this.user_Image = ''
+        this.user_Role = ''
       },
  
       userEdit(){
@@ -465,6 +473,7 @@ export default{
                 user_Email: null,
                 user_Password: null,
                 user_Image: null,
+                user_Role: null
           }
         }catch(err){
           console.error(err);

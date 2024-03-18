@@ -2,9 +2,9 @@
     <div class="view">
         <h1>Log In</h1>
 
-        <input type="text" name="admin_Name" id="admin_Name1" placeholder="Name" v-model="user_Name">
+        <input type="text" name="user_Name" id="user_Name1" placeholder="Name" v-model="user_Name">
         <br><br>
-        <input type="password" name="admin_Password" id="admin_Password1" placeholder="Password" v-model="user_Password">'
+        <input type="password" name="user_Password" id="user_Password1" placeholder="Password" v-model="user_Password">'
         <br><br>
 
         <button @click="password()">LogIn</button>

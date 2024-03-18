@@ -24,6 +24,8 @@
                 <br><br>
                 <input type="text" name="user_Image" id="user_Image" placeholder="Image Url" v-model="user_Image">
                 <br><br>
+                <input type="text" name="user_Role" id="user_Role" placeholder="Role" v-model="user_Role">
+                <br><br>
               </div>
               <div class="modal-footer">
                 <button type="button" data-bs-dismiss="modal">Close</button>
@@ -45,7 +47,8 @@ export default {
             user_Gender: null,
             user_Email: null,
             user_Password: null,
-            user_Image: null
+            user_Image: null,
+            user_Role: null
         }
     },
 

@@ -1,6 +1,6 @@
 import {pool} from '../config/config.js'
 
-//POSTS
+//POSTS 
 
 //get all posts
 const getPosts = async()=>{

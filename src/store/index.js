@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 axios.defaults.withCredentials = true;
 
 const baseUrl = 'https://new-capstone-project-z8q3.onrender.com'
-  
+
 export default createStore({
   state: {
     users: null,
@@ -104,18 +104,18 @@ export default createStore({
 
     //add user
     async addUser({commit}, add){
+
       try{
         console.log(add);
         let {data} = await axios.post(baseUrl + '/users', add)
         // alert(data.msg)
-        Swal.fire(data.msg)
         window.location.reload()
+        Swal.fire(data.msg)
       }catch(err){
         console.error('Error adding user ', err);
         Swal.fire('Error adding user ', err)
       }
     },
-
 
 
     //ADMINS

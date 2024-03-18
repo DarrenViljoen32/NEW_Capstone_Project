@@ -15,6 +15,8 @@
         <br><br>
         <input type="text" name="user_Image" id="user_Image" placeholder="Image Url" v-model="user_Image">
         <br><br>
+        <input type="text" name="user_Role" id="user_Role" placeholder="Role" v-model="user_Role">
+        <br><br>
         
         <router-link to="/login"><button @click="plusAdmin()">Register</button></router-link>
         
@@ -35,13 +37,14 @@ export default{
             user_Gender: null,
             user_Email: null,
             user_Password: null,
-            user_Image: null
+            user_Image: null,
+            user_Role: null
         }
     },
 
     methods:{
         plusAdmin(){
-            this.$store.dispatch('addAdmin', this.$data)
+            this.$store.dispatch('addUser', this.$data)
         }
     },
 

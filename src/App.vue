@@ -33,7 +33,7 @@ computed:{
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Ubuntu");
-
+ 
 #app {
   font-family: "Ubuntu", Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

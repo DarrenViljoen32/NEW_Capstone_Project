@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 axios.defaults.withCredentials = true;
 
-const baseUrl = 'https://capstone-project-4.onrender.com'
+const baseUrl = 'https://new-capstone-project-z8q3.onrender.com'
   
 export default createStore({
   state: {
@@ -123,9 +123,9 @@ export default createStore({
     //get all admins
     async getAdmins({commit}){
       try{
-        let admins = await axios.get(baseUrl + '/admins')
-        console.log(admins);
-        commit('setAdmins', admins.data)
+        let users = await axios.get(baseUrl + '/users')
+        console.log(users);
+        commit('setUsers', users.data)
       }catch(err){
         console.error('Error fetching admins: ' , err);
         Swal.fire('Error fetching admins ', err)
@@ -133,9 +133,9 @@ export default createStore({
     },
 
     //get one admin
-    async getOneAdmin({commit}, adminDetails){
+    async getOneAdmin({commit}, userDetails){
       try{
-        await axios.get(baseUrl + '/admins', adminDetails)
+        await axios.get(baseUrl + '/users', userDetails)
         window.location.reload()
       }catch(err){
         console.error(err);
@@ -144,10 +144,10 @@ export default createStore({
     },
 
     //delete admin
-    async deleteAdmin({commit}, admin_ID){
+    async deleteAdmin({commit}, user_ID){
       try{
-        console.log(admin_ID);
-        let {data} = await axios.delete(baseUrl + '/admins/' + admin_ID)
+        console.log(user_ID);
+        let {data} = await axios.delete(baseUrl + '/users/' + user_ID)
         if(data.msg){
           Swal.fire(data.msg)
         }else{
@@ -163,7 +163,7 @@ export default createStore({
     //update admin
     async editAdmins({commit}, update){
       try{
-        let {data} = await axios.patch(baseUrl + '/admins/' + update.admin_ID, update)
+        let {data} = await axios.patch(baseUrl + '/users/' + update.user_ID, update)
         if(data.msg){
           Swal.fire(data.msg)
         }else{
@@ -181,7 +181,7 @@ export default createStore({
       
       try{
         console.log(add);
-        let {data} = await axios.post(baseUrl + '/admins' , add)
+        let {data} = await axios.post(baseUrl + '/users' , add)
         // alert(data.msg)
         // window.location.reload()
         Swal.fire(data.msg)
@@ -196,7 +196,7 @@ export default createStore({
         console.log(user_Password);
         let {data} = await axios.post(baseUrl + '/login', user_Password)
 
-        const adminDetails = data.users
+        const userDetails = data.users
         commit('setUsers', userDetails)
   
         $cookies.set('jwt', data.token)

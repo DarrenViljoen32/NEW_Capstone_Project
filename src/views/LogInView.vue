@@ -33,7 +33,7 @@ export default{
                 user_Email: this.user_Email,
                 user_Password: this.user_Password
             })
-        }
+        } 
     },
 
     computed:{

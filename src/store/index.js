@@ -194,11 +194,11 @@ export default createStore({
     //login as admin
     async loginAdmin({commit}, {user_Email, user_Password}){
       try{
-        console.log(user_Password);
+        // console.log(user_Password);
         const {data} = await axios.post(baseUrl + '/login', {user_Email, user_Password})
 
-        // const userDetails = data.users
-        // commit('setUsers', userDetails)
+        const userDetails = data.users
+        commit('setUsers', userDetails)
   
         $cookies.set('jwt', data.token)
         commit('setLoginMessage', data.msg)
@@ -212,9 +212,9 @@ export default createStore({
 
       }catch(error){
         if(error.response && error.response.status === 401){
-          alert('The credetials are incorrect.')
+          Swal.fire('The credetials are incorrect.')
         }else{
-          alert('An error occured. Please try again later')
+          Swal.fire('An error occured. Please try again later')
         }
       }
     },

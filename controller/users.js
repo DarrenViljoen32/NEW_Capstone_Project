@@ -62,7 +62,7 @@ export default{
     editUser: async (req,res)=>{
         try{
             const [user] = await getOneUser(+req.params.user_ID)
-            let {user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image} = req.body
+            let {user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role} = req.body
             
             user_Name ? user_Name = user_Name: {user_Name} = user
             user_Surname ? user_Surname = user_Surname: {user_Surname} = user
@@ -75,9 +75,9 @@ export default{
     
             console.log(user);
             await editUser(user_Name, user_Surname, user_Age, user_Gender, user_Email, user_Password, user_Image, user_Role, +req.params.user_ID) 
-            res.send({
-                msg: "You have successfully updated the data."
-            })
+            // res.send({
+            //     msg: "You have successfully updated the data."
+            // })
             res.json(await getUsers())
         
         }catch(err){

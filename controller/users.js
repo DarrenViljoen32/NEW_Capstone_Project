@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import {getUsers, getOneUser, addUser, deleteUser, editUser} from '../models/users.js'
+import {getUsers, getOneUser, addUser, deleteUser, editUser, checkUser} from '../models/users.js'
 
 
 
